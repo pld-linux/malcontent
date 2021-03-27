@@ -6,16 +6,16 @@
 Summary:	Library providing access to parental control settings
 Summary(pl.UTF-8):	Biblioteka zapewniająca dostęp do ustawień kontroli rodzicielskiej
 Name:		malcontent
-Version:	0.9.0
+Version:	0.10.1
 Release:	1
 License:	LGPL v2.1+ (library), CC-AS-SA v3.0 (docs)
 Group:		Applications
 #Source0Download: https://gitlab.freedesktop.org/pwithnall/malcontent/-/tags
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	ff65b62f1b081a6082836f38af2a668f
+# Source0-md5:	04565d421f7db278e2fb60c1ed414b5c
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 %{?with_gui:BuildRequires:	accountsservice-devel >= 0.6.39}
-BuildRequires:	appstream-glib-devel
+BuildRequires:	appstream-glib-devel >= 0.7.15
 BuildRequires:	dbus-devel
 BuildRequires:	flatpak-devel
 BuildRequires:	gettext-tools
@@ -95,6 +95,7 @@ Summary:	Library providing widgets for parental control settings
 Summary(pl.UTF-8):	Biblioteka zapewniająca kontrolki do ustawień kontroli rodzicielskiej
 Group:		Libraries
 Requires:	accountsservice-libs >= 0.6.39
+Requires:	appstream-glib >= 0.7.15
 Requires:	gtk+3 >= 3.24
 Requires:	libmalcontent = %{version}-%{release}
 
@@ -111,7 +112,7 @@ Group:		Development/Libraries
 Requires:	libmalcontent-devel = %{version}-%{release}
 Requires:	libmalcontent-ui = %{version}-%{release}
 Requires:	accountsservice-devel >= 0.6.39
-Requires:	appstream-glib-devel
+Requires:	appstream-glib-devel >= 0.7.15
 Requires:	flatpak-devel
 Requires:	gtk+3-devel >= 3.24
 
