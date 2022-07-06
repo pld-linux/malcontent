@@ -6,13 +6,13 @@
 Summary:	Library providing access to parental control settings
 Summary(pl.UTF-8):	Biblioteka zapewniająca dostęp do ustawień kontroli rodzicielskiej
 Name:		malcontent
-Version:	0.10.4
+Version:	0.10.5
 Release:	1
 License:	LGPL v2.1+ (library), CC-AS-SA v3.0 (docs)
 Group:		Applications
 #Source0Download: https://gitlab.freedesktop.org/pwithnall/malcontent/-/tags
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	5c7487c9c1504653ca29bbca2b6b38c7
+# Source0-md5:	b6c32c40e3d1c51be8d42239aa80285f
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 %{?with_gui:BuildRequires:	accountsservice-devel >= 0.6.39}
 BuildRequires:	appstream-glib-devel >= 0.7.15
