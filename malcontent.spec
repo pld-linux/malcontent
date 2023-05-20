@@ -6,24 +6,26 @@
 Summary:	Library providing access to parental control settings
 Summary(pl.UTF-8):	Biblioteka zapewniająca dostęp do ustawień kontroli rodzicielskiej
 Name:		malcontent
-Version:	0.10.5
+Version:	0.11.1
 Release:	1
 License:	LGPL v2.1+ (library), CC-AS-SA v3.0 (docs)
 Group:		Applications
 #Source0Download: https://gitlab.freedesktop.org/pwithnall/malcontent/-/tags
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	b6c32c40e3d1c51be8d42239aa80285f
+# Source0-md5:	6955b2c9a472af69561db70de87fbea6
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
+%{?with_gui:BuildRequires:	AppStream-devel >= 0.12.10}
 %{?with_gui:BuildRequires:	accountsservice-devel >= 0.6.39}
-BuildRequires:	appstream-glib-devel >= 0.7.15
+BuildRequires:	appstream-glib >= 0.7.15
 BuildRequires:	dbus-devel
 BuildRequires:	flatpak-devel
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.60.1
 BuildRequires:	gobject-introspection-devel
-%{?with_gui:BuildRequires:	gtk+3-devel >= 3.24}
+%{?with_gui:BuildRequires:	gtk4-devel >= 4.6}
+%{?with_gui:BuildRequires:	libadwaita-devel >= 1.1}
 BuildRequires:	libglib-testing-devel
-BuildRequires:	meson >= 0.50.0
+BuildRequires:	meson >= 0.59.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
@@ -94,9 +96,10 @@ Statyczna biblioteka libmalcontent.
 Summary:	Library providing widgets for parental control settings
 Summary(pl.UTF-8):	Biblioteka zapewniająca kontrolki do ustawień kontroli rodzicielskiej
 Group:		Libraries
+Requires:	AppStream >= 0.12.10
 Requires:	accountsservice-libs >= 0.6.39
-Requires:	appstream-glib >= 0.7.15
-Requires:	gtk+3 >= 3.24
+Requires:	gtk4 >= 4.6
+Requires:	libadwaita >= 1.1
 Requires:	libmalcontent = %{version}-%{release}
 
 %description -n libmalcontent-ui
@@ -109,12 +112,13 @@ Biblioteka zapewniająca kontrolki do ustawień kontroli rodzicielskiej.
 Summary:	Header files for libmalcontent-ui library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libmalcontent-ui
 Group:		Development/Libraries
+Requires:	AppStream-devel >= 0.12.10
 Requires:	libmalcontent-devel = %{version}-%{release}
 Requires:	libmalcontent-ui = %{version}-%{release}
 Requires:	accountsservice-devel >= 0.6.39
-Requires:	appstream-glib-devel >= 0.7.15
 Requires:	flatpak-devel
-Requires:	gtk+3-devel >= 3.24
+Requires:	gtk4-devel >= 4.6
+Requires:	libadwaita-devel >= 1.1
 
 %description -n libmalcontent-ui-devel
 Header files for libmalcontent-ui library.
@@ -209,20 +213,20 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with gui}
 %files -n libmalcontent-ui
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libmalcontent-ui-0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmalcontent-ui-0.so.0
-%{_libdir}/girepository-1.0/MalcontentUi-0.typelib
+%attr(755,root,root) %{_libdir}/libmalcontent-ui-1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libmalcontent-ui-1.so.1
+%{_libdir}/girepository-1.0/MalcontentUi-1.typelib
 
 %files -n libmalcontent-ui-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libmalcontent-ui-0.so
-%{_includedir}/malcontent-ui-0
-%{_datadir}/gir-1.0/MalcontentUi-0.gir
-%{_pkgconfigdir}/malcontent-ui-0.pc
+%attr(755,root,root) %{_libdir}/libmalcontent-ui-1.so
+%{_includedir}/malcontent-ui-1
+%{_datadir}/gir-1.0/MalcontentUi-1.gir
+%{_pkgconfigdir}/malcontent-ui-1.pc
 
 %if %{with static_libs}
 %files -n libmalcontent-ui-static
 %defattr(644,root,root,755)
-%{_libdir}/libmalcontent-ui-0.a
+%{_libdir}/libmalcontent-ui-1.a
 %endif
 %endif
