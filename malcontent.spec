@@ -6,26 +6,27 @@
 Summary:	Library providing access to parental control settings
 Summary(pl.UTF-8):	Biblioteka zapewniająca dostęp do ustawień kontroli rodzicielskiej
 Name:		malcontent
-Version:	0.11.1
-Release:	2
+Version:	0.12.0
+Release:	1
 License:	LGPL v2.1+ (library), CC-AS-SA v3.0 (docs)
 Group:		Applications
 #Source0Download: https://gitlab.freedesktop.org/pwithnall/malcontent/-/tags
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	6955b2c9a472af69561db70de87fbea6
+# Source0-md5:	481685ce3cf72f3e8ef1affe06dd1f6c
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 %{?with_gui:BuildRequires:	AppStream-devel >= 0.12.10}
 %{?with_gui:BuildRequires:	accountsservice-devel >= 0.6.39}
+# appstream-util in malcontent-control/meson.build
 BuildRequires:	appstream-glib >= 0.7.15
 BuildRequires:	dbus-devel
 BuildRequires:	flatpak-devel
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.60.1
 BuildRequires:	gobject-introspection-devel
-%{?with_gui:BuildRequires:	gtk4-devel >= 4.6}
+%{?with_gui:BuildRequires:	gtk4-devel >= 4.12}
 %{?with_gui:BuildRequires:	libadwaita-devel >= 1.1}
 BuildRequires:	libglib-testing-devel
-BuildRequires:	meson >= 0.59.0
+BuildRequires:	meson >= 1.2.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
@@ -98,7 +99,7 @@ Summary(pl.UTF-8):	Biblioteka zapewniająca kontrolki do ustawień kontroli rodz
 Group:		Libraries
 Requires:	AppStream >= 0.12.10
 Requires:	accountsservice-libs >= 0.6.39
-Requires:	gtk4 >= 4.6
+Requires:	gtk4 >= 4.12
 Requires:	libadwaita >= 1.1
 Requires:	libmalcontent = %{version}-%{release}
 
@@ -117,7 +118,7 @@ Requires:	libmalcontent-devel = %{version}-%{release}
 Requires:	libmalcontent-ui = %{version}-%{release}
 Requires:	accountsservice-devel >= 0.6.39
 Requires:	flatpak-devel
-Requires:	gtk4-devel >= 4.6
+Requires:	gtk4-devel >= 4.12
 Requires:	libadwaita-devel >= 1.1
 
 %description -n libmalcontent-ui-devel
