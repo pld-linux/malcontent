@@ -13,6 +13,7 @@ Group:		Applications
 #Source0Download: https://gitlab.freedesktop.org/pwithnall/malcontent/-/tags
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/%{name}-%{version}.tar.bz2
 # Source0-md5:	481685ce3cf72f3e8ef1affe06dd1f6c
+Patch0:		no-cache-update.patch
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 %{?with_gui:BuildRequires:	AppStream-devel >= 0.12.10}
 %{?with_gui:BuildRequires:	accountsservice-devel >= 0.6.39}
@@ -141,6 +142,7 @@ Statyczna biblioteka libmalcontent-ui.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' malcontent-client/malcontent-client.py
 

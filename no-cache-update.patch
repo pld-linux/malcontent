@@ -1,0 +1,13 @@
+--- malcontent-0.12.0/meson.build.orig	2024-03-15 17:31:26.000000000 +0100
++++ malcontent-0.12.0/meson.build	2024-04-19 13:30:18.988216018 +0200
+@@ -154,8 +154,8 @@
+   subdir('malcontent-control')
+ 
+   gnome.post_install(
+-    gtk_update_icon_cache: true,
+-    update_desktop_database: true,
++    gtk_update_icon_cache: false,
++    update_desktop_database: false,
+   )
+ endif
+ subdir('pam')
