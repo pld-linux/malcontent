@@ -32,7 +32,7 @@ BuildRequires:	ninja >= 1.5
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 BuildRequires:	polkit-devel
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	sed >= 4.0
 %if %{with gui}
 Requires:	accountsservice >= 0.6.39
@@ -147,17 +147,17 @@ Statyczna biblioteka libmalcontent-ui.
 %{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' malcontent-client/malcontent-client.py
 
 %build
-%meson build \
+%meson \
 	%{!?with_static_libs:--default-library=shared} \
 	-Dpamlibdir=/%{_lib}/security \
-	%{!?with_gui:-Dui=disabled}
+	-Dui=%{__enabled_disabled gui}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %if %{without gui}
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/{accountsservice,help,polkit-1}
