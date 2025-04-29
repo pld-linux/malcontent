@@ -6,13 +6,13 @@
 Summary:	Library providing access to parental control settings
 Summary(pl.UTF-8):	Biblioteka zapewniająca dostęp do ustawień kontroli rodzicielskiej
 Name:		malcontent
-Version:	0.12.0
+Version:	0.13.0
 Release:	1
 License:	LGPL v2.1+ (library), CC-AS-SA v3.0 (docs)
 Group:		Applications
 #Source0Download: https://gitlab.freedesktop.org/pwithnall/malcontent/-/tags
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	481685ce3cf72f3e8ef1affe06dd1f6c
+# Source0-md5:	744beb9479f6223da7e295036f6c9923
 Patch0:		no-cache-update.patch
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 %{?with_gui:BuildRequires:	AppStream-devel >= 0.12.10}
@@ -25,7 +25,7 @@ BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.60.1
 BuildRequires:	gobject-introspection-devel
 %{?with_gui:BuildRequires:	gtk4-devel >= 4.12}
-%{?with_gui:BuildRequires:	libadwaita-devel >= 1.1}
+%{?with_gui:BuildRequires:	libadwaita-devel >= 1.6}
 BuildRequires:	libglib-testing-devel
 BuildRequires:	meson >= 1.2.0
 BuildRequires:	ninja >= 1.5
@@ -101,7 +101,7 @@ Group:		Libraries
 Requires:	AppStream >= 0.12.10
 Requires:	accountsservice-libs >= 0.6.39
 Requires:	gtk4 >= 4.12
-Requires:	libadwaita >= 1.1
+Requires:	libadwaita >= 1.6
 Requires:	libmalcontent = %{version}-%{release}
 
 %description -n libmalcontent-ui
@@ -120,7 +120,7 @@ Requires:	libmalcontent-ui = %{version}-%{release}
 Requires:	accountsservice-devel >= 0.6.39
 Requires:	flatpak-devel
 Requires:	gtk4-devel >= 4.12
-Requires:	libadwaita-devel >= 1.1
+Requires:	libadwaita-devel >= 1.6
 
 %description -n libmalcontent-ui-devel
 Header files for libmalcontent-ui library.
@@ -185,7 +185,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with gui}
 %attr(755,root,root) %{_bindir}/malcontent-control
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.*.xml
-%{_datadir}/metainfo/org.freedesktop.MalcontentControl.appdata.xml
+%{_datadir}/metainfo/org.freedesktop.MalcontentControl.metainfo.xml
 %{_datadir}/polkit-1/actions/com.endlessm.ParentalControls.policy
 %{_datadir}/polkit-1/actions/org.freedesktop.MalcontentControl.policy
 %{_datadir}/polkit-1/rules.d/com.endlessm.ParentalControls.rules
